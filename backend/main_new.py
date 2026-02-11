@@ -596,4 +596,4 @@ async def handle_player_exit(room_code: str, username: str):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main_new:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main_new:app", host="192.168.0.6", port=8000, reload=True)
