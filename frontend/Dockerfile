@@ -26,9 +26,6 @@ RUN npm install -g serve
 # Copy built files from builder
 COPY --from=builder /app/dist ./dist
 
-# Copy public assets if any
-COPY public ./public 2>/dev/null || true
-
 # Expose port
 EXPOSE 3000
 
