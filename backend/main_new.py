@@ -539,7 +539,9 @@ async def advance_game_turn(room_code: str):
             "type": "game_ended",
             "winner": game_engine.game_state.winner,
             "can_restart": True,
-            "game_status": game_engine.get_game_status()
+            "game_status": game_engine.get_game_status(),
+            "board": game_engine.game_state.game_data.get("board", []),
+            "player_colors": game_engine.game_state.game_data.get("player_colors", {})
         })
     else:
         # Send next turn data

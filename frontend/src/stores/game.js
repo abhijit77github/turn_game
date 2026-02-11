@@ -251,6 +251,19 @@ export const useGameStore = defineStore('game', {
           this.gameStarted = false
           this.winner = data.winner
           this.canRestart = data.can_restart
+          
+          // Update board and colors for final state display
+          if (data.board) {
+            this.board = data.board
+          }
+          if (data.player_colors) {
+            this.playerColors = data.player_colors
+          }
+          
+          // Clear any ongoing animations
+          this.explosions = []
+          this.queuedEvents = []
+          this.processingEvents = false
           break
           
         case 'error':

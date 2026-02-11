@@ -211,7 +211,12 @@ class ChainReactionGame(GameEngine):
             cell_delay = 0
             for x, y in current_batch:
                 cell = board[y][x]
-                ball_color = cell["balls"][0] if cell["balls"] else None
+                
+                # Only process if cell has balls
+                if not cell["balls"]:
+                    continue
+                    
+                ball_color = cell["balls"][0]  # All balls in cell should be same color
                 
                 # Event: explosion (staggered by 0.5s per cell)
                 explosion_time = event_time + cell_delay
